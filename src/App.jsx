@@ -4,10 +4,10 @@ import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Ba
 // ╔════════════════════════════════════════════════════════════════╗
 // ║  🔥 CONFIGURAÇÃO FIREBASE - SUBSTITUA PELOS SEUS DADOS!        ║
 // ╚════════════════════════════════════════════════════════════════╝
-const FIREBASE_DATABASE_URL = "https://SEU-PROJETO-default-rtdb.firebaseio.com";
+const FIREBASE_DATABASE_URL = "https://diet-tracker-eduardo-default-rtdb.firebaseio.com";
 // ↑↑↑ MUDE ESTA LINHA! Exemplo: "https://diet-tracker-eduardo-default-rtdb.firebaseio.com"
 
-const USER_ID = "eduardo";
+const USER_ID = "eduardoaffonso";
 // ↑↑↑ Pode mudar para seu nome. Seu nutricionista usará o mesmo ID para ver seus dados.
 // ════════════════════════════════════════════════════════════════════
 
