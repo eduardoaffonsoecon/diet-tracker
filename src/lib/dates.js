@@ -29,13 +29,22 @@ export const formatDayMonth = (s) =>
 
 export const formatFull = (s) => parseISODate(s).toLocaleDateString('pt-BR');
 
-export const formatWeekday = (s) =>
-  parseISODate(s).toLocaleDateString('pt-BR', { weekday: 'short', day: '2-digit', month: 'short' });
+const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
-export const formatMonth = (s) => {
-  const label = parseISODate(s).toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
-  return label.charAt(0).toUpperCase() + label.slice(1);
-};
+// "Segunda-feira"
+export const formatWeekdayName = (s) => capitalize(parseISODate(s).toLocaleDateString('pt-BR', { weekday: 'long' }));
+
+// "12 de outubro" (com o ano quando não é o ano corrente)
+export const formatDayMonthLong = (s, today = todayISO()) =>
+  parseISODate(s).toLocaleDateString('pt-BR', {
+    day: 'numeric',
+    month: 'long',
+    ...(s.slice(0, 4) !== today.slice(0, 4) && { year: 'numeric' }),
+  });
+
+// "Outubro de 2026"
+export const formatMonth = (s) =>
+  capitalize(parseISODate(s).toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }));
 
 export const relativeDayLabel = (s, today = todayISO()) => {
   if (s === today) return 'Hoje';
